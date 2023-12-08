@@ -1,6 +1,6 @@
 import os
 
-def process_day(input):
+def process_card(input):
     winners = [int(value) for value in input.split('|')[0].split(':')[1].strip().split(' ') if value]
     numbers = [int(value) for value in input.split('|')[1].strip().split(' ') if value]
     winner_count = len([value for value in numbers if value in winners])
@@ -17,8 +17,8 @@ def process_day(input):
     }
 
 def part_1(input):
-    days = [process_day(day) for day in input]
-    total_points = sum([day['points'] for day in days])
+    cards = [process_card(card) for card in input]
+    total_points = sum([card['points'] for card in cards])
     return total_points
 
 with open(os.path.join(os.path.dirname(__file__), 'input.txt')) as file_contents:
